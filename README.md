@@ -1,2 +1,3 @@
 "# gonderi" 
 "# gonderi" 
+"# patates" 
