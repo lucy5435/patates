@@ -1,5 +1,5 @@
 <?php
-
+ini_set('max_execution_time', 300);
 $mysqli = new mysqli('89.252.178.128', 'db', 'Daf!191o');
 if($mysqli->connect_errno){
     echo "Bağlantı Hatası:".$con->connect_errno;
@@ -11,7 +11,7 @@ $mysqli->set_charset("utf8");
 function gonderial($tur,$limit){
     global $mysqli;
     $gonderiler = array();
-    $mysqliquery = "SELECT * FROM gonderiler where fixed='0' order by numaravarmi desc, id asc limit $limit";
+    $mysqliquery = "SELECT * FROM gonderiler where fixed='0' order by numaravarmi desc, rand() limit $limit";
     $runmysqli =  mysqli_query($mysqli, $mysqliquery);
     WHILE($rows =mysqli_fetch_array($runmysqli)):
         $shortcode = $rows['shortcode'];

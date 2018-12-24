@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+ini_set('max_execution_time', 300);
 ini_set('display_errors', 1);
 
 $mysqli = new mysqli('89.252.178.128', 'db', 'Daf!191o');
@@ -13,7 +14,7 @@ $mysqli->set_charset("utf8");
 function hesapal($limit){
     global $mysqli;
     $hesaplar = array();
-    $mysqliquery = "SELECT * FROM gonderiler where fixed='1' order by numaravarmi desc, id asc limit $limit";
+    $mysqliquery = "SELECT * FROM gonderiler where fixed='1' order by numaravarmi desc, rand() limit $limit";
     $runmysqli =  mysqli_query($mysqli, $mysqliquery);
     WHILE($rows =mysqli_fetch_array($runmysqli)):
         $username = $rows['username'];
